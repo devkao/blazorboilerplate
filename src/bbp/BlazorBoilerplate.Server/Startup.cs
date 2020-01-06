@@ -33,7 +33,7 @@ using BlazorBoilerplate.Server.Middleware;
 using BlazorBoilerplate.Server.Models;
 using BlazorBoilerplate.Server.Services;
 using BlazorBoilerplate.Shared.AuthorizationDefinitions;
-using CVM.Extensions;
+
 using IdentityServer4;
 using IdentityServer4.AccessTokenValidation;
 
@@ -97,7 +97,9 @@ namespace BlazorBoilerplate.Server
             }
 
             services.AddDbContext<ApplicationDbContext>(DbContextOptionsBuilder);
-            services.AddDbContext<DebugDatacontext>(DbContextOptionsBuilder);
+            services.AddDbContext<DebugDatacontext>();
+
+            
 
             services.AddIdentity<ApplicationUser, IdentityRole<Guid>>()
                 .AddRoles<IdentityRole<Guid>>()
@@ -316,6 +318,8 @@ namespace BlazorBoilerplate.Server
             services.AddTransient<ITodoService, ToDoService>();
             services.AddTransient<IMessageService, MessageService>();
 
+            services.AddTransient<ILanguageService, LanguageService>();
+
             // DB Creation and Seeding
             services.AddTransient<IDatabaseInitializer, DatabaseInitializer>();
 
@@ -369,6 +373,8 @@ namespace BlazorBoilerplate.Server
             {
                 Log.Logger.Debug($"\n      Service: {service.ServiceType.FullName}\n      Lifetime: {service.Lifetime}\n      Instance: {service.ImplementationType?.FullName}");
             }
+
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

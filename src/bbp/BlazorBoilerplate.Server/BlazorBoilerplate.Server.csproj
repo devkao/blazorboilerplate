@@ -79,7 +79,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\CVM.Extensions\CVM.Extensions.csproj" />
     <ProjectReference Include="..\BlazorBoilerplate.Client\BlazorBoilerplate.Client.csproj" />
     <ProjectReference Include="..\BlazorBoilerplate.CommonUI\BlazorBoilerplate.CommonUI.csproj" />
     <ProjectReference Include="..\BlazorBoilerplate.Shared\BlazorBoilerplate.Shared.csproj" />
